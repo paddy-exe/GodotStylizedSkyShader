@@ -1,0 +1,10 @@
+[gd_resource type="Shader" format=3 uid="uid://c5hwe0kul3wtn"]
+
+[resource]
+code = "shader_type sky;
+
+void fragment() {
+	
+	COLOR = vec3(0.2, 1.0, 1.0);
+	
+}"

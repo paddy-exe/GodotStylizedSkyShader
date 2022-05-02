@@ -1,0 +1,40 @@
+[gd_resource type="ShaderMaterial" load_steps=6 format=3 uid="uid://vtd4jt4dbqvw"]
+
+[ext_resource type="Shader" path="res://Testshader.gdshader" id="1_7grhm"]
+[ext_resource type="Texture2D" uid="uid://cob2w8tbmbfw3" path="res://base_noise.png" id="2_wg5bf"]
+[ext_resource type="Texture2D" uid="uid://c6njvhgbifpqj" path="res://distort.png" id="3_fd4mu"]
+[ext_resource type="Texture2D" uid="uid://bgxhqq4w4ewcq" path="res://secondary_noise.png" id="4_ah7gw"]
+[ext_resource type="Texture2D" uid="uid://cyiafa1idccft" path="res://Voronoi.png" id="5_376hy"]
+
+[resource]
+shader = ExtResource( "1_7grhm" )
+shader_param/stars_cutoff = 0.08
+shader_param/stars_speed = 0.3
+shader_param/stars_sky_color = Color(0, 0.2, 0.1, 1)
+shader_param/offset_horizon = 0.0
+shader_param/horizon_intensity = -30.0
+shader_param/sun_set = Color(1, 0.8, 1, 1)
+shader_param/horizon_color_day = Color(0, 0.8, 1, 1)
+shader_param/horizon_color_night = Color(0, 0.8, 1, 1)
+shader_param/sun_color = Color(1, 0.905882, 0.301961, 1)
+shader_param/sun_radius = 0.3
+shader_param/moon_color = Color(1, 1, 1, 1)
+shader_param/moon_radius = 0.15
+shader_param/moon_offset = -0.1
+shader_param/day_bottom_color = Color(0.4, 1, 1, 1)
+shader_param/day_top_color = Color(0, 0.8, 1, 1)
+shader_param/speed = 1.4
+shader_param/FUZZY = true
+shader_param/cloud_color_day_edge = Color(1, 1, 1, 1)
+shader_param/cloud_color_day_main = Color(0.8, 0.9, 0.8, 1)
+shader_param/cloud_color_day_under = Color(0.6, 0.7, 0.6, 1)
+shader_param/brightness = 0.0
+shader_param/night_bottom_color = Color(0, 0, 0.2, 1)
+shader_param/night_top_color = Color(0, 0, 0, 1)
+shader_param/cloud_color_night_edge = Color(0, 1, 1, 1)
+shader_param/cloud_color_night_main = Color(0, 0.2, 0.8, 1)
+shader_param/cloud_color_night_under = Color(0, 0.2, 0.6, 1)
+shader_param/stars_tex = ExtResource( "5_376hy" )
+shader_param/base_noise = ExtResource( "2_wg5bf" )
+shader_param/distort = ExtResource( "3_fd4mu" )
+shader_param/secondary_noise = ExtResource( "4_ah7gw" )
