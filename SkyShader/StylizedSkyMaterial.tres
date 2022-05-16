@@ -1,7 +1,9 @@
-[gd_resource type="ShaderMaterial" load_steps=5 format=3 uid="uid://dl5hw75ef5ir"]
+[gd_resource type="ShaderMaterial" load_steps=7 format=3 uid="uid://dl5hw75ef5ir"]
 
 [ext_resource type="Shader" path="res://SkyShader/StylizedSky.gdshader" id="1_u1q48"]
 [ext_resource type="Texture2D" uid="uid://cob2w8tbmbfw3" path="res://base_noise.png" id="2_kj71a"]
+[ext_resource type="Texture2D" uid="uid://c6njvhgbifpqj" path="res://distort.png" id="3_ru3qc"]
+[ext_resource type="Texture2D" uid="uid://bgxhqq4w4ewcq" path="res://secondary_noise.png" id="4_ex86k"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_deuf6"]
 noise_type = 3
@@ -35,9 +37,23 @@ shader_param/day_bottom_color = Color(0.4, 1, 1, 1)
 shader_param/day_top_color = Color(0, 0.8, 1, 1)
 shader_param/night_bottom_color = Color(0, 0, 0.2, 1)
 shader_param/night_top_color = Color(0, 0, 0, 1)
-shader_param/base_noise_scale = null
+shader_param/base_noise_scale = 0.0
 shader_param/stars_speed = 0.007
 shader_param/stars_cutoff = 0.864
 shader_param/stars_sky_color = Color(0, 0.113725, 0.054902, 1)
+shader_param/cloud_edge_color = Color(0.901961, 0.901961, 0.901961, 1)
+shader_param/cloud_main_color = Color(1, 1, 1, 1)
+shader_param/cloud_speed_1 = 0.2
+shader_param/cloud_speed_2 = 0.1
+shader_param/cloud_speed_3 = 0.02
+shader_param/cloud_scale_1 = 0.014
+shader_param/cloud_scale_2 = 0.27
+shader_param/cloud_scale_3 = 0.2
+shader_param/cloud_distortion = 3.657
+shader_param/cloud_strength = 0.663
+shader_param/cloud_cutoff = 0.119
+shader_param/cloud_fuzziness = 0.108
 shader_param/stars_texture = SubResource( "NoiseTexture_d3r0e" )
 shader_param/base_noise = ExtResource( "2_kj71a" )
+shader_param/cloud_noise1 = ExtResource( "3_ru3qc" )
+shader_param/cloud_noise2 = ExtResource( "4_ex86k" )

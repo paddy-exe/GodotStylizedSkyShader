@@ -39,6 +39,22 @@ uniform float stars_speed : hint_range(0.0, 1.0, 0.001) = 0.3;
 uniform float stars_cutoff : hint_range(0.0, 1.0, 0.001) = 0.08;
 uniform vec4 stars_sky_color : hint_color = vec4(0.0, 0.2, 0.1, 1);
 
+// Cloud stuff
+uniform sampler2D cloud_noise1 : hint_black;
+uniform sampler2D cloud_noise2 : hint_black;
+uniform vec4 cloud_edge_color : hint_color = vec4(0.9, 0.9, 0.9, 1.0);
+uniform vec4 cloud_main_color : hint_color = vec4(1.0);
+uniform float cloud_speed_1 = 1.0;
+uniform float cloud_speed_2 = 0.2;
+uniform float cloud_speed_3 = 0.6;
+uniform float cloud_scale_1 = 1.0;
+uniform float cloud_scale_2 = 1.0;
+uniform float cloud_scale_3 = 1.0;
+uniform float cloud_distortion = 0.1;
+uniform float cloud_strength = 0.1;
+uniform float cloud_cutoff = 0.5;
+uniform float cloud_fuzziness = 0.1;
+
 void sky() {
 	// get skyUV to place the sun and the moon
 	vec2 skyUV = EYEDIR.xz / EYEDIR.y;
@@ -94,5 +110,16 @@ void sky() {
 	
 	vec3 sky = skyGradients + sunAndMoon + sunsetColoured + stars + horizonGlow;
 	
-	COLOR = sky;
+	
+	// Clouds
+	// UV space illusion
+	vec2 cloud_uv = EYEDIR.xz / EYEDIR.y;
+	float bn = texture(base_noise, (cloud_uv - TIME * cloud_speed_1) * cloud_scale_1).r;
+	float cn1 = texture(cloud_noise1, ((cloud_uv + bn * cloud_distortion) - TIME * cloud_speed_2) * cloud_scale_2).r;
+	float cn2 = texture(cloud_noise2, ((cloud_uv + cn1 * cloud_strength) - TIME * cloud_speed_3) * cloud_scale_3).r;
+	float fc = clamp(cn1 * cn2, 0.0, 1.0) * clamp(EYEDIR.y, 0.0, 1.0);
+	float cc = smoothstep(cloud_cutoff, cloud_cutoff + cloud_fuzziness, fc);
+	vec4 cloud_color = mix(cloud_edge_color, cloud_main_color, cc);
+	
+	COLOR = mix(sky, cloud_color.rgb, cc * cloud_color.a * clamp(LIGHT0_DIRECTION.y, 0.0, 1.0));
 }
