@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c6njvhgbifpqj"
-path.s3tc="res://.godot/imported/distort.png-798869da3a7e5aaac9e609390984d0c2.s3tc.ctex"
-path.etc2="res://.godot/imported/distort.png-798869da3a7e5aaac9e609390984d0c2.etc2.ctex"
+uid="uid://bgxhqq4w4ewcq"
+path.s3tc="res://.godot/imported/secondary_noise.png-2c78378874a92f36719c27c7f5cbc9b6.s3tc.ctex"
+path.etc2="res://.godot/imported/secondary_noise.png-2c78378874a92f36719c27c7f5cbc9b6.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://distort.png"
-dest_files=["res://.godot/imported/distort.png-798869da3a7e5aaac9e609390984d0c2.s3tc.ctex", "res://.godot/imported/distort.png-798869da3a7e5aaac9e609390984d0c2.etc2.ctex"]
+source_file="res://Textures/secondary_noise.png"
+dest_files=["res://.godot/imported/secondary_noise.png-2c78378874a92f36719c27c7f5cbc9b6.s3tc.ctex", "res://.godot/imported/secondary_noise.png-2c78378874a92f36719c27c7f5cbc9b6.etc2.ctex"]
 
 [params]
 
@@ -31,5 +31,6 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=0

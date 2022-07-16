@@ -1,7 +1,7 @@
-[gd_resource type="ShaderMaterial" load_steps=9 format=3 uid="uid://dl5hw75ef5ir"]
+[gd_resource type="ShaderMaterial" load_steps=9 format=3 uid="uid://djfi6n7n0t6s"]
 
 [ext_resource type="Shader" path="res://SkyShader/StylizedSky.gdshader" id="1_u1q48"]
-[ext_resource type="Texture2D" uid="uid://cob2w8tbmbfw3" path="res://base_noise.png" id="2_kj71a"]
+[ext_resource type="Texture2D" uid="uid://cob2w8tbmbfw3" path="res://Images/base_noise.png" id="2_mnx47"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_i60uw"]
 noise_type = 2
@@ -43,7 +43,7 @@ noise = SubResource("FastNoiseLite_deuf6")
 
 [resource]
 shader = ExtResource("1_u1q48")
-shader_param/base_noise = ExtResource("2_kj71a")
+shader_param/base_noise = ExtResource("2_mnx47")
 shader_param/cloud_cutoff = 0.234
 shader_param/cloud_distortion = 1.95
 shader_param/cloud_edge_day_color = Color(0.9, 0.9, 0.9, 1)

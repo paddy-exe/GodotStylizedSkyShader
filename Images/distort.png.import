@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cyiafa1idccft"
-path.s3tc="res://.godot/imported/Voronoi.png-1e44a10e67fd4987ff13b2eeab13c5b4.s3tc.ctex"
-path.etc2="res://.godot/imported/Voronoi.png-1e44a10e67fd4987ff13b2eeab13c5b4.etc2.ctex"
+uid="uid://c6njvhgbifpqj"
+path.s3tc="res://.godot/imported/distort.png-ef6486ec5cd85fc9898623bc0c3c3693.s3tc.ctex"
+path.etc2="res://.godot/imported/distort.png-ef6486ec5cd85fc9898623bc0c3c3693.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://Voronoi.png"
-dest_files=["res://.godot/imported/Voronoi.png-1e44a10e67fd4987ff13b2eeab13c5b4.s3tc.ctex", "res://.godot/imported/Voronoi.png-1e44a10e67fd4987ff13b2eeab13c5b4.etc2.ctex"]
+source_file="res://Images/distort.png"
+dest_files=["res://.godot/imported/distort.png-ef6486ec5cd85fc9898623bc0c3c3693.s3tc.ctex", "res://.godot/imported/distort.png-ef6486ec5cd85fc9898623bc0c3c3693.etc2.ctex"]
 
 [params]
 
@@ -31,5 +31,6 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=0

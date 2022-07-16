@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cob2w8tbmbfw3"
-path.s3tc="res://.godot/imported/base_noise.png-533e8edad5750abcb4bff1f90c751268.s3tc.ctex"
-path.etc2="res://.godot/imported/base_noise.png-533e8edad5750abcb4bff1f90c751268.etc2.ctex"
+uid="uid://dogjjrrqvxbgk"
+path.s3tc="res://.godot/imported/UV_texture.jpg-d5db158b785d8209a39d5add62a9d1d3.s3tc.ctex"
+path.etc2="res://.godot/imported/UV_texture.jpg-d5db158b785d8209a39d5add62a9d1d3.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://base_noise.png"
-dest_files=["res://.godot/imported/base_noise.png-533e8edad5750abcb4bff1f90c751268.s3tc.ctex", "res://.godot/imported/base_noise.png-533e8edad5750abcb4bff1f90c751268.etc2.ctex"]
+source_file="res://Textures/UV_texture.jpg"
+dest_files=["res://.godot/imported/UV_texture.jpg-d5db158b785d8209a39d5add62a9d1d3.s3tc.ctex", "res://.godot/imported/UV_texture.jpg-d5db158b785d8209a39d5add62a9d1d3.etc2.ctex"]
 
 [params]
 
@@ -31,5 +31,6 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=0

@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://8jqd766nuual"]
 
 [ext_resource type="Script" path="res://SkyShader/Main.gd" id="1_k1683"]
-[ext_resource type="Material" uid="uid://dl5hw75ef5ir" path="res://SkyShader/StylizedSkyMaterial.tres" id="1_wj6ha"]
+[ext_resource type="Material" path="res://SkyShader/StylizedSkyMaterial.tres" id="1_wj6ha"]
 
 [sub_resource type="Sky" id="Sky_jq8uw"]
 sky_material = ExtResource("1_wj6ha")

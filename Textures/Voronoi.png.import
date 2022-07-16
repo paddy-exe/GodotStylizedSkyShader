@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dogjjrrqvxbgk"
-path.s3tc="res://.godot/imported/UV_texture.jpg-c507247941179db4ef0083dbc38c03ea.s3tc.ctex"
-path.etc2="res://.godot/imported/UV_texture.jpg-c507247941179db4ef0083dbc38c03ea.etc2.ctex"
+uid="uid://cyiafa1idccft"
+path.s3tc="res://.godot/imported/Voronoi.png-e0f8ce975986dc23c97fcc1556630f8f.s3tc.ctex"
+path.etc2="res://.godot/imported/Voronoi.png-e0f8ce975986dc23c97fcc1556630f8f.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://UV_texture.jpg"
-dest_files=["res://.godot/imported/UV_texture.jpg-c507247941179db4ef0083dbc38c03ea.s3tc.ctex", "res://.godot/imported/UV_texture.jpg-c507247941179db4ef0083dbc38c03ea.etc2.ctex"]
+source_file="res://Textures/Voronoi.png"
+dest_files=["res://.godot/imported/Voronoi.png-e0f8ce975986dc23c97fcc1556630f8f.s3tc.ctex", "res://.godot/imported/Voronoi.png-e0f8ce975986dc23c97fcc1556630f8f.etc2.ctex"]
 
 [params]
 
@@ -31,5 +31,6 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=0
