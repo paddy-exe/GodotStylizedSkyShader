@@ -4,11 +4,11 @@
 [ext_resource type="Material" uid="uid://dl5hw75ef5ir" path="res://SkyShader/StylizedSkyMaterial.tres" id="1_wj6ha"]
 
 [sub_resource type="Sky" id="Sky_jq8uw"]
-sky_material = ExtResource( "1_wj6ha" )
+sky_material = ExtResource("1_wj6ha")
 
 [sub_resource type="Environment" id="Environment_jwe7i"]
 background_mode = 2
-sky = SubResource( "Sky_jq8uw" )
+sky = SubResource("Sky_jq8uw")
 
 [sub_resource type="SphereMesh" id="SphereMesh_vh3ws"]
 
@@ -50,18 +50,18 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xpn0a"]
 _data = {
-"RESET": SubResource( "Animation_pj32p" ),
-"sunriseset": SubResource( "Animation_bsq5n" )
+"RESET": SubResource("Animation_pj32p"),
+"sunriseset": SubResource("Animation_bsq5n")
 }
 
 [node name="Main" type="Node3D"]
-script = ExtResource( "1_k1683" )
+script = ExtResource("1_k1683")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( "Environment_jwe7i" )
+environment = SubResource("Environment_jwe7i")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.452435, 0.891798, 0, -0.891798, 0.452435, 0, 5.58819, 1.31604)
+transform = Transform3D(1, 0, 0, 0, -0.538768, 0.842454, 0, -0.842454, -0.538768, 0, 5.58819, 1.31604)
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -71,18 +71,18 @@ transform = Transform3D(1, 0, 0, 0, 0.604599, -0.79653, 0, 0.79653, 0.604599, 0,
 
 [node name="Sphere" type="MeshInstance3D" parent="Decoration"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.90534, 0)
-mesh = SubResource( "SphereMesh_vh3ws" )
+mesh = SubResource("SphereMesh_vh3ws")
 
 [node name="Plane" type="MeshInstance3D" parent="Decoration"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0484245, 0)
-mesh = SubResource( "PlaneMesh_ckk31" )
+mesh = SubResource("PlaneMesh_ckk31")
 skeleton = NodePath("../..")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Decoration"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.03236, 1.94466, 1.89405)
-mesh = SubResource( "BoxMesh_ei5h5" )
+mesh = SubResource("BoxMesh_ei5h5")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource( "AnimationLibrary_xpn0a" )
+"": SubResource("AnimationLibrary_xpn0a")
 }

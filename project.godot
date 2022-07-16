@@ -12,8 +12,8 @@ config_version=5
 
 config/name="StylizedSkyShader"
 run/main_scene="res://main.tscn"
-config/icon="res://Images/day_sky.png"
 config/features=PackedStringArray("4.0", "Vulkan Clustered")
+config/icon="res://Images/day_sky.png"
 
 [display]
 
