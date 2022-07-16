@@ -4,7 +4,7 @@ shader_type sky;
 render_mode use_half_res_pass;
 
 // Horizon
-uniform float offset_horizon : hint_range(-1.0, 1.0, 0.1) = 0.0;
+uniform float offset_horizon : hint_range(-1.0, 1.0, 0.001) = 0.0;
 uniform float horizon_intensity : hint_range(-10.0, 5.0, 0.001) = -3.3;
 uniform vec4 sun_set : source_color = vec4(1.0, 0.8, 1.0, 1.0);
 uniform vec4 horizon_color_day : source_color = vec4(0.0, 0.8, 1.0, 1.0);

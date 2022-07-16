@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bgxhqq4w4ewcq"
-path.s3tc="res://.godot/imported/secondary_noise.png-b9929cf1d2eba715f1d89f557774cc78.s3tc.ctex"
-path.etc2="res://.godot/imported/secondary_noise.png-b9929cf1d2eba715f1d89f557774cc78.etc2.ctex"
+uid="uid://cob2w8tbmbfw3"
+path.s3tc="res://.godot/imported/base_noise.png-f9f93949f5ed5cc9e572480322451bb0.s3tc.ctex"
+path.etc2="res://.godot/imported/base_noise.png-f9f93949f5ed5cc9e572480322451bb0.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc", "etc2"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://secondary_noise.png"
-dest_files=["res://.godot/imported/secondary_noise.png-b9929cf1d2eba715f1d89f557774cc78.s3tc.ctex", "res://.godot/imported/secondary_noise.png-b9929cf1d2eba715f1d89f557774cc78.etc2.ctex"]
+source_file="res://Images/base_noise.png"
+dest_files=["res://.godot/imported/base_noise.png-f9f93949f5ed5cc9e572480322451bb0.s3tc.ctex", "res://.godot/imported/base_noise.png-f9f93949f5ed5cc9e572480322451bb0.etc2.ctex"]
 
 [params]
 
@@ -31,5 +31,6 @@ process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false
 process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=0

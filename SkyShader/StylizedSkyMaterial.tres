@@ -1,11 +1,13 @@
-[gd_resource type="ShaderMaterial" load_steps=9 format=3 uid="uid://dl5hw75ef5ir"]
+[gd_resource type="ShaderMaterial" load_steps=9 format=3 uid="uid://djfi6n7n0t6s"]
 
 [ext_resource type="Shader" path="res://SkyShader/StylizedSky.gdshader" id="1_u1q48"]
-[ext_resource type="Texture2D" uid="uid://cob2w8tbmbfw3" path="res://base_noise.png" id="2_kj71a"]
+[ext_resource type="Texture2D" uid="uid://cob2w8tbmbfw3" path="res://Images/base_noise.png" id="2_mnx47"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_i60uw"]
-noise_type = 2
-fractal_type = 0
+noise_type = 3
+frequency = 0.001
+fractal_type = 2
+fractal_octaves = 1
 cellular_distance_function = 3
 cellular_return_type = 0
 
@@ -43,43 +45,43 @@ noise = SubResource("FastNoiseLite_deuf6")
 
 [resource]
 shader = ExtResource("1_u1q48")
-shader_param/base_noise = ExtResource("2_kj71a")
-shader_param/cloud_cutoff = 0.234
-shader_param/cloud_distortion = 1.95
-shader_param/cloud_edge_day_color = Color(0.9, 0.9, 0.9, 1)
-shader_param/cloud_edge_night_color = Color(0.14902, 0.192157, 0.254902, 1)
-shader_param/cloud_fuzziness = 0.091
-shader_param/cloud_main_day_color = Color(1, 1, 1, 1)
-shader_param/cloud_main_night_color = Color(0.145098, 0.164706, 0.203922, 1)
-shader_param/cloud_noise1 = SubResource("NoiseTexture_uhc2h")
-shader_param/cloud_noise2 = SubResource("NoiseTexture_vkbkn")
-shader_param/cloud_scale_1 = 0.425
-shader_param/cloud_scale_2 = 0.074
-shader_param/cloud_scale_3 = 0.075
-shader_param/cloud_speed_1 = 0.1
-shader_param/cloud_speed_2 = 0.2
-shader_param/cloud_speed_3 = 0.2
-shader_param/cloud_strength = 1.0
-shader_param/dark_falloff = 4.382
-shader_param/day_bottom_color = Color(0.4, 1, 1, 1)
-shader_param/day_top_color = Color(0, 0.8, 1, 1)
-shader_param/enable_horizon_fade = true
-shader_param/flat_sun = true
-shader_param/horizon_color_day = Color(0.568627, 0.529412, 0.262745, 1)
-shader_param/horizon_color_night = Color(0.0901961, 0.164706, 0.4, 1)
-shader_param/horizon_fade_blend = 0.1
-shader_param/horizon_fade_size = 0.2
-shader_param/horizon_intensity = -0.443
-shader_param/moon_color = Color(1, 1, 1, 1)
-shader_param/moon_crescent = 0.064
-shader_param/moon_radius = 0.12
-shader_param/night_bottom_color = Color(0, 0, 0.2, 1)
-shader_param/night_top_color = Color(0, 0, 0, 1)
-shader_param/offset_horizon = 0.0
-shader_param/stars_cutoff = 0.964
-shader_param/stars_sky_color = Color(0, 0.113725, 0.054902, 1)
-shader_param/stars_speed = 0.007
-shader_param/stars_texture = SubResource("NoiseTexture_d3r0e")
-shader_param/sun_color = Color(1, 1, 1, 1)
-shader_param/sun_radius = 0.295
-shader_param/sun_set = Color(0.556863, 0.235294, 0, 1)
+enable_horizon_fade = true
+flat_sun = true
+horizon_color_day = Color(0.568627, 0.529412, 0.262745, 1)
+horizon_color_night = Color(0.0901961, 0.164706, 0.4, 1)
+horizon_fade_blend = 0.1
+horizon_fade_size = 0.2
+horizon_intensity = -0.443
+moon_color = Color(1, 1, 1, 1)
+moon_crescent = 0.064
+moon_radius = 0.12
+night_bottom_color = Color(0, 0, 0.2, 1)
+night_top_color = Color(0, 0, 0, 1)
+offset_horizon = 0.0
+stars_cutoff = 0.974
+stars_sky_color = Color(0, 0.113725, 0.054902, 1)
+stars_speed = 0.365
+stars_texture = SubResource("NoiseTexture_d3r0e")
+sun_color = Color(1, 1, 1, 1)
+sun_radius = 0.295
+sun_set = Color(0.556863, 0.235294, 0, 1)
+base_noise = ExtResource("2_mnx47")
+cloud_cutoff = 0.234
+cloud_distortion = 1.95
+cloud_edge_day_color = Color(0.9, 0.9, 0.9, 1)
+cloud_edge_night_color = Color(0.14902, 0.192157, 0.254902, 1)
+cloud_fuzziness = 0.091
+cloud_main_day_color = Color(1, 1, 1, 1)
+cloud_main_night_color = Color(0.145098, 0.164706, 0.203922, 1)
+cloud_noise1 = SubResource("NoiseTexture_uhc2h")
+cloud_noise2 = SubResource("NoiseTexture_vkbkn")
+cloud_scale_1 = 0.425
+cloud_scale_2 = 0.074
+cloud_scale_3 = 0.075
+cloud_speed_1 = 0.1
+cloud_speed_2 = 0.2
+cloud_speed_3 = 0.2
+cloud_strength = 1.0
+dark_falloff = 4.382
+day_bottom_color = Color(0.4, 1, 1, 1)
+day_top_color = Color(0, 0.8, 1, 1)
