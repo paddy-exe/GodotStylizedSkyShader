@@ -124,7 +124,7 @@ void sky() {
 	vec3 gradientNight = mix(night_bottom_color.rgb, night_top_color.rgb, clamp(EYEDIR.y, 0.0, 1.0));
 	vec3 skyGradients = mix(gradientNight, gradientDay, clamp(LIGHT0_DIRECTION.y, 0.0, 1.0));
 	
-	vec3 sky = skyGradients + sunAndMoon + sunsetColoured + stars + horizonGlow;// + horizon_stars; // + horizon_stars2;
+	vec3 sky = skyGradients + sunAndMoon + sunsetColoured + stars + horizonGlow;
 	
 	
 	// Clouds
