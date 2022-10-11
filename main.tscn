@@ -9,6 +9,11 @@ sky_material = ExtResource("1_wj6ha")
 [sub_resource type="Environment" id="Environment_jwe7i"]
 background_mode = 2
 sky = SubResource("Sky_jq8uw")
+ambient_light_source = 3
+reflected_light_source = 2
+tonemap_mode = 3
+sdfgi_enabled = true
+glow_enabled = true
 fog_light_color = Color(0.388235, 0.172549, 0.235294, 1)
 fog_density = 0.1832
 fog_height = -638.24
@@ -137,7 +142,7 @@ script = ExtResource("1_k1683")
 environment = SubResource("Environment_jwe7i")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(-0.896347, -0.042099, 0.44135, 0.443353, -0.0851135, 0.892297, 2.28479e-09, 0.995481, 0.094956, 0, 5.58819, 1.31604)
+transform = Transform3D(1, 0, 0, 0, -0.538768, 0.842454, 0, -0.842454, -0.538768, 0, 5.58819, 1.31604)
 shadow_enabled = true
 
 [node name="Camera3D" type="Camera3D" parent="."]

@@ -4,24 +4,25 @@ shader_type sky;
 render_mode use_half_res_pass;
 
 // Horizon
-uniform float offset_horizon : hint_range(-1.0, 1.0, 0.001) = 0.0;
-uniform float horizon_intensity : hint_range(-10.0, 5.0, 0.001) = -3.3;
-uniform vec4 sun_set : source_color = vec4(1.0, 0.8, 1.0, 1.0);
-uniform vec4 horizon_color_day : source_color = vec4(0.0, 0.8, 1.0, 1.0);
-uniform vec4 horizon_color_night : source_color = vec4(0.0, 0.8, 1.0, 1.0);
+uniform float offset_horizon : hint_range(-1.0, 1.0, 0.001) = 0.236;
+uniform float horizon_intensity : hint_range(-10.0, 5.0, 0.001) = -0.443;
+uniform vec4 sun_set : source_color = vec4(0.56, 0.24, 0.0, 1.0);
+uniform vec4 horizon_color_day : source_color = vec4(0.57, 0.53, 0.26, 1.0);
+uniform vec4 horizon_color_night : source_color = vec4(0.09, 0.16, 0.04, 1.0);
 
 // Sun
 uniform vec4 sun_color : source_color = vec4(1.0);
-uniform float sun_radius : hint_range(0.0, 2.0, 0.001) = 0.5;
+uniform float sun_radius : hint_range(0.0, 2.0, 0.001) = 0.2;
 uniform bool flat_sun = true;
 
 // Moon
 uniform vec4 moon_color : source_color = vec4(1.0);
-uniform float moon_radius : hint_range(0.0, 2.0, 0.01) = 0.15;
+uniform float moon_radius : hint_range(0.0, 2.0, 0.01) = 0.05;
 // negative: crescent on right side
 // positive: crescent on left side 
-uniform float moon_crescent : hint_range(-0.3, 0.3, 0.001) = -0.3;
-uniform float dark_falloff : hint_range(1.0, 6.0, 0.001) = 4.0;
+uniform float moon_crescent : hint_range(-0.3, 0.3, 0.001) = -0.024;
+uniform float dark_falloff : hint_range(1.0, 6.0, 0.001) = 4.382;
+uniform float star_falloff : hint_range(1.0, 6.0, 0.001) = 4.382;
 
 // Sun and Moon Horizon fade parameters
 uniform bool enable_horizon_fade = true;
@@ -39,27 +40,28 @@ uniform vec4 night_top_color : source_color = vec4(0.0, 0.0, 0.0, 1.0);
 // stars
 uniform sampler2D stars_texture : hint_default_black;
 uniform sampler2D base_noise : hint_default_black;
-uniform float stars_speed : hint_range(0.0, 1.0, 0.001) = 0.3;
-uniform float stars_cutoff : hint_range(0.0, 1.0, 0.001) = 0.08;
-uniform vec4 stars_sky_color : source_color = vec4(0.0, 0.2, 0.1, 1);
+uniform float stars_speed : hint_range(0.0, 1.0, 0.001) = 0.1;
+uniform float stars_cutoff : hint_range(0.0, 1.0, 0.001) = 0.756;
+uniform vec4 stars_sky_color : source_color = vec4(0.0, 0.11, 0.05, 1);
+uniform float offset_stars : hint_range(-1.0, 1.0, 0.001) = 0.132;
 
 // Cloud stuff
 uniform sampler2D cloud_noise1 : hint_default_black;
 uniform sampler2D cloud_noise2 : hint_default_black;
 uniform vec4 cloud_edge_day_color : source_color = vec4(0.9, 0.9, 0.9, 1.0);
 uniform vec4 cloud_main_day_color : source_color = vec4(1.0);
-uniform vec4 cloud_edge_night_color : source_color = vec4(0.7, 0.7, 0.7, 1.0);
-uniform vec4 cloud_main_night_color : source_color = vec4(0.8);
-uniform float cloud_speed_1 = 0.1;
-uniform float cloud_speed_2 = 0.2;
-uniform float cloud_speed_3 = 0.2;
+uniform vec4 cloud_edge_night_color : source_color = vec4(0.15, 0.19, 0.25, 1.0);
+uniform vec4 cloud_main_night_color : source_color = vec4(0.15, 0.16, 0.20, 1.0);
+uniform float cloud_speed_1 = 0.01;
+uniform float cloud_speed_2 = 0.02;
+uniform float cloud_speed_3 = 0.02;
 uniform float cloud_scale_1 = 0.425;
 uniform float cloud_scale_2 = 0.074;
 uniform float cloud_scale_3 = 0.075;
 uniform float cloud_distortion = 1.95;
 uniform float cloud_strength = 1.0;
 uniform float cloud_cutoff = 0.2;
-uniform float cloud_fuzziness = 0.091;
+uniform float cloud_fuzziness = 0.87;
 
 void sky() {
 	// get skyUV to place the sun and the moon
@@ -109,21 +111,20 @@ void sky() {
 	sunAndMoon *= top_mask;
 	
 	// stars
-	// Use Worley noise because it becomes circular, perlin noise will look weird
-	vec3 stars = texture(stars_texture, skyUV + (stars_speed * (TIME / 20.0))).rgb;
-	stars *= clamp(-LIGHT0_DIRECTION.y, 0.0, 1.0);
+	float stars_falloff = 1.0 - horizon * star_falloff;
+	vec3 stars = texture(stars_texture, (skyUV * stars_falloff) + (stars_speed * (TIME / 30.0))).rgb;
+	stars *= clamp(-LIGHT0_DIRECTION.y, 0, 1.0);
 	stars = step(stars_cutoff, stars);
 	stars += stars_sky_color.rgb;
-	
-	
-	//Sky Background Gradient
+
+	//Sky Background Gradient 
 	// day color gradient
 	vec3 gradientDay = mix(day_bottom_color.rgb, day_top_color.rgb, clamp(EYEDIR.y, 0.0, 1.0));
 	// night color gradient
 	vec3 gradientNight = mix(night_bottom_color.rgb, night_top_color.rgb, clamp(EYEDIR.y, 0.0, 1.0));
 	vec3 skyGradients = mix(gradientNight, gradientDay, clamp(LIGHT0_DIRECTION.y, 0.0, 1.0));
 	
-	vec3 sky = skyGradients + sunAndMoon + sunsetColoured + stars + horizonGlow;
+	vec3 sky = skyGradients + sunAndMoon + sunsetColoured + stars + horizonGlow;// + horizon_stars; // + horizon_stars2;
 	
 	
 	// Clouds
