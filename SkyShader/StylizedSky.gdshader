@@ -45,6 +45,7 @@ uniform vec4 stars_sky_color : source_color = vec4(0.0, 0.11, 0.05, 1);
 uniform float offset_stars : hint_range(-2.0, 2.0, 0.001) = 0.083;
 uniform float stars_intensity : hint_range(-10.0, 10.0, 0.001) = -2.829;
 uniform float star_falloff : hint_range(1.0, 10.0, 0.001) = 1.79;
+uniform float stars_fade_modulation : hint_range(-1.80, 1.80, 0.001) = 0.91;
 
 // Cloud stuff
 uniform sampler2D cloud_noise1 : hint_default_black;
@@ -112,9 +113,10 @@ void sky() {
 	sunAndMoon *= top_mask;
 	
 	// stars
-	float stars_falloff = abs((EYEDIR.y * stars_intensity) - offset_stars) * top_mask * star_falloff;
-	vec3 stars = texture(stars_texture, (skyUV * stars_falloff) + (stars_speed * (TIME / 30.0))).rgb;
-	stars *= clamp(-LIGHT0_DIRECTION.y, 0, 1.0);
+	float stars_parameters = abs((EYEDIR.y * stars_intensity) - offset_stars) * step(0.0, EYEDIR.y) * star_falloff;
+	vec3 stars = texture(stars_texture, (skyUV * stars_parameters) + (stars_speed * (TIME / 30.0))).rgb;
+	float stars_zenith = clamp(-LIGHT0_DIRECTION.y, 0.0, 1.0);
+	stars *= stars_zenith + abs(stars_zenith - stars_fade_modulation);
 	stars = step(stars_cutoff, stars);
 	stars += stars_sky_color.rgb;
 
