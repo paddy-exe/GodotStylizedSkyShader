@@ -1,17 +1,9 @@
 extends Node3D
 
-#@onready anim_player : AnimationPlayer = $AnimationPlayer
+var anim_player: AnimationPlayer
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	anim_player = get_node("AnimationPlayer")
 	
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	var anim_player : AnimationPlayer = $AnimationPlayer
-	
-	if Input.is_action_just_pressed("play"):
+	if anim_player:
 		anim_player.play("sunriseset")
-	
