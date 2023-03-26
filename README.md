@@ -1,7 +1,5 @@
 # Godot 4 Stylized Sky Shader
 
--> Updated to Beta 2
-
 The original shader code is from Joyce aka. [MinionsArt's Patreon](https://www.patreon.com/posts/making-stylized-27402644 "Awesome tutorials here!") under [CC Attributions 4.0](https://creativecommons.org/licenses/by/4.0/)
 
 I ported most of the code over to the project. Some of the variables had to be adjusted so the look of the scene could be replicated as close as possible.
