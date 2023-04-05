@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://8jqd766nuual"]
+[gd_scene load_steps=12 format=3 uid="uid://8jqd766nuual"]
 
 [ext_resource type="Script" path="res://SkyShader/Main.gd" id="1_k1683"]
 [ext_resource type="Material" uid="uid://djfi6n7n0t6s" path="res://SkyShader/StylizedSkyMaterial.tres" id="1_wj6ha"]
@@ -20,76 +20,6 @@ fog_height = -638.24
 fog_height_density = 0.8369
 
 [sub_resource type="SphereMesh" id="SphereMesh_vh3ws"]
-
-[sub_resource type="Shader" id="Shader_pwtfd"]
-code = "// NOTE: Shader automatically converted from Godot Engine 4.0.alpha13's StandardMaterial3D.
-
-shader_type spatial;
-render_mode blend_mix,depth_draw_opaque,cull_back,diffuse_burley,specular_schlick_ggx,depth_prepass_alpha;
-uniform vec4 albedo : source_color;
-uniform sampler2D texture_albedo : source_color,filter_linear_mipmap,repeat_enable;
-uniform float point_size : hint_range(0,128);
-uniform float roughness : hint_range(0,1);
-uniform sampler2D texture_metallic : hint_default_white,filter_linear_mipmap,repeat_enable;
-uniform vec4 metallic_texture_channel;
-uniform sampler2D texture_roughness : hint_roughness_r,filter_linear_mipmap,repeat_enable;
-uniform float specular;
-uniform float metallic;
-uniform vec3 uv1_scale;
-uniform vec3 uv1_offset;
-uniform vec3 uv2_scale;
-uniform vec3 uv2_offset;
-
-uniform vec3 fresnel_color : source_color = vec3(1.0);
-uniform float fresnel_amount = 0.0;
-uniform float fresnel_intensity = 0.0;
-
-vec3 fresnel_glow(float amount, float intensity, vec3 color, vec3 normal, vec3 view)
-{
-	return pow((1.0 - dot(normalize(normal), normalize(view))), amount) * color * intensity;
-}
-
-
-void vertex() {
-	UV=UV*uv1_scale.xy+uv1_offset.xy;
-}
-
-
-
-
-
-
-void fragment() {
-	vec2 base_uv = UV;
-	vec4 albedo_tex = texture(texture_albedo,base_uv);
-	ALBEDO = albedo.rgb * albedo_tex.rgb;
-	float metallic_tex = dot(texture(texture_metallic,base_uv),metallic_texture_channel);
-	METALLIC = metallic_tex * metallic;
-	vec4 roughness_texture_channel = vec4(1.0,0.0,0.0,0.0);
-	float roughness_tex = dot(texture(texture_roughness,base_uv),roughness_texture_channel);
-	ROUGHNESS = roughness_tex * roughness;
-	SPECULAR = specular;
-	ALPHA *= albedo.a * albedo_tex.a;
-	EMISSION = fresnel_glow(fresnel_amount, fresnel_intensity, fresnel_color, NORMAL, VIEW);
-}
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_w8f0f"]
-render_priority = 0
-shader = SubResource("Shader_pwtfd")
-shader_parameter/albedo = Color(1, 1, 1, 0.172549)
-shader_parameter/fresnel_amount = 0.973
-shader_parameter/fresnel_color = Color(0.47451, 0.0980392, 1, 1)
-shader_parameter/fresnel_intensity = 15.118
-shader_parameter/metallic = 0.0
-shader_parameter/metallic_texture_channel = Plane(1, 0, 0, 0)
-shader_parameter/point_size = 1.0
-shader_parameter/roughness = 1.0
-shader_parameter/specular = 0.5
-shader_parameter/uv1_offset = Vector3(0, 0, 0)
-shader_parameter/uv1_scale = Vector3(1, 1, 1)
-shader_parameter/uv2_offset = Vector3(0, 0, 0)
-shader_parameter/uv2_scale = Vector3(1, 1, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_ckk31"]
 size = Vector2(80, 80)
@@ -154,14 +84,13 @@ visible = false
 [node name="Sphere" type="MeshInstance3D" parent="Decoration"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.90534, 0)
 mesh = SubResource("SphereMesh_vh3ws")
-surface_material_override/0 = SubResource("ShaderMaterial_w8f0f")
 
 [node name="Plane" type="MeshInstance3D" parent="Decoration"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0484245, 0)
 mesh = SubResource("PlaneMesh_ckk31")
 skeleton = NodePath("../..")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Decoration"]
+[node name="Box" type="MeshInstance3D" parent="Decoration"]
 transform = Transform3D(-3.09086e-08, 0.707107, 0.707107, -1, -4.37114e-08, 0, 3.09086e-08, -0.707107, 0.707107, -2.03236, 1.94466, 1.89405)
 mesh = SubResource("BoxMesh_11kwe")
 surface_material_override/0 = SubResource("StandardMaterial3D_ctqyd")
@@ -170,7 +99,3 @@ surface_material_override/0 = SubResource("StandardMaterial3D_ctqyd")
 libraries = {
 "": SubResource("AnimationLibrary_xpn0a")
 }
-
-[node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.16938, 0)
-light_energy = 5.0
